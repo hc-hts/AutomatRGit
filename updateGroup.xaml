@@ -1,0 +1,537 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="updateGroup" sap2010:WorkflowViewState.IdRef="updateGroup_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:ad="clr-namespace:AutomatR.DefaultActivities;assembly=AutomatR.DefaultActivities"
+ xmlns:az="clr-namespace:AutomatR.Zendesk;assembly=AutomatR.Zendesk"
+ xmlns:aza="clr-namespace:AutomatR.Zendesk.Activities;assembly=AutomatR.Zendesk"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:z="clr-namespace:ZendeskApi_v2;assembly=ZendeskApi_v2"
+ xmlns:zms="clr-namespace:ZendeskApi_v2.Models.Search;assembly=ZendeskApi_v2"
+ xmlns:zms1="clr-namespace:ZendeskApi_v2.Models.Shared;assembly=ZendeskApi_v2"
+ xmlns:zmt="clr-namespace:ZendeskApi_v2.Models.Tickets;assembly=ZendeskApi_v2"
+ xmlns:zmu="clr-namespace:ZendeskApi_v2.Models.Users;assembly=ZendeskApi_v2">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>AutomatR.Runtime</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>AutomatR.Zendesk.Activities</x:String>
+      <x:String>ZendeskApi_v2</x:String>
+      <x:String>ZendeskApi_v2.Models.Search</x:String>
+      <x:String>ZendeskApi_v2.Models.Tickets</x:String>
+      <x:String>ZendeskApi_v2.Models</x:String>
+      <x:String>ZendeskApi_v2.Models.Users</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>AutomatR.FlowConfig</AssemblyReference>
+      <AssemblyReference>AutomatR.Runtime</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>AutomatR.Zendesk</AssemblyReference>
+      <AssemblyReference>ZendeskApi_v2</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Prism</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <aza:ZendeskScope Delay="{x:Null}" AccessToken="08caef40d6a68d3c0d9a32778544ab1a8ce677ae08157ee833635753d8138bec" DisplayName="Zendesk Scope" sap2010:WorkflowViewState.IdRef="ZendeskScope_1" Subdomain="https://d3v-automatr.zendesk.com/">
+      <aza:ZendeskScope.Body>
+        <ActivityAction x:TypeArguments="az:ZendeskScopeApp">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="az:ZendeskScopeApp" Name="Argument" />
+          </ActivityAction.Argument>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="zmt:IndividualTicketResponse" sap2010:WorkflowViewState.IdRef="Variable`1_10" Name="response" />
+            </Sequence.Variables>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="Variable`1_3" Name="outputToken" />
+                <Variable x:TypeArguments="scg:IList(x:String)" sap2010:WorkflowViewState.IdRef="Variable`1_4" Name="uploads" />
+                <Variable x:TypeArguments="scg:IList(zms1:Attachment)" sap2010:WorkflowViewState.IdRef="Variable`1_5" Name="attachments" />
+                <Variable x:TypeArguments="zmt:IndividualTicketMetricResponse" sap2010:WorkflowViewState.IdRef="Variable`1_6" Name="ticketMetric" />
+                <Variable x:TypeArguments="zmt:GroupTicketMetricResponse" sap2010:WorkflowViewState.IdRef="Variable`1_7" Name="groupMetric" />
+              </Sequence.Variables>
+              <Sequence DisplayName="Scope" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="scg:IList(zms:Result)" sap2010:WorkflowViewState.IdRef="Variable`1_1" Name="listOfResult" />
+                  <Variable x:TypeArguments="z:ZendeskApi" sap2010:WorkflowViewState.IdRef="Variable`1_2" Name="variable1" />
+                </Sequence.Variables>
+                <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_11">
+                  <ad:Commented.Body>
+                    <aza:UpdateGroup Delay="{x:Null}" Result="{x:Null}" DisplayName="Update Group" GroupID="1811398315889041" GroupName="HC1-Grp-Studio" sap2010:WorkflowViewState.IdRef="UpdateGroup_1" />
+                  </ad:Commented.Body>
+                </ad:Commented>
+                <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_2">
+                  <ad:Commented.Body>
+                    <aza:CreateGroup Delay="{x:Null}" Result="{x:Null}" DisplayName="Create Group" GroupName="Created by Create group activity" sap2010:WorkflowViewState.IdRef="CreateGroup_1" />
+                  </ad:Commented.Body>
+                </ad:Commented>
+                <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_10">
+                  <ad:Commented.Body>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <aza:ListSearch Delay="{x:Null}" SortOrder="{x:Null}" DisplayName="List Search" sap2010:WorkflowViewState.IdRef="ListSearch_2" ListOfSearch="[listOfResult]" MaximumRecords="5002" Query="type:ticket status:new" SortBy="priority" />
+                      <ForEach x:TypeArguments="zms:Result" DisplayName="ForEach&lt;Result&gt;" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listOfResult]">
+                        <ActivityAction x:TypeArguments="zms:Result">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="zms:Result" Name="item" />
+                          </ActivityAction.Argument>
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[item.Id.ToString + &quot;---&quot; + item.Subject]" />
+                          </Sequence>
+                        </ActivityAction>
+                      </ForEach>
+                    </Sequence>
+                  </ad:Commented.Body>
+                </ad:Commented>
+              </Sequence>
+              <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_4">
+                <ad:Commented.Body>
+                  <Sequence DisplayName="Upload File" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <aza:UploadFile Delay="{x:Null}" DisplayName="Upload File" FilePath="C:\Projects\Venkatrama Poultry\New Text Document.txt" sap2010:WorkflowViewState.IdRef="UploadFile_1" UploadedFileAttachment="[attachments]" UploadedFileToken="[outputToken]" />
+                    <aza:CreateTicketComment AuthorID="{x:Null}" Delay="{x:Null}" Public="{x:Null}" Result="{x:Null}" Type="{x:Null}" DisplayName="Create Ticket Comment" sap2010:WorkflowViewState.IdRef="CreateTicketComment_1" Text="This is my upload" TicketID="8" Uploads="[uploads]" />
+                  </Sequence>
+                </ad:Commented.Body>
+              </ad:Commented>
+              <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_7">
+                <ad:Commented.Body>
+                  <Sequence DisplayName="Ticket Metrics" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <aza:ShowTicketMetrics Delay="{x:Null}" DisplayName="Show Ticket Metrics" sap2010:WorkflowViewState.IdRef="ShowTicketMetrics_1" TicketID="233" TicketMetrics="[ticketMetric]" />
+                    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[ticketMetric.TicketMetric.AssignedAt.ToString]" />
+                  </Sequence>
+                </ad:Commented.Body>
+              </ad:Commented>
+              <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_6">
+                <ad:Commented.Body>
+                  <ForEach x:TypeArguments="zmt:TicketMetric" DisplayName="ForEach&lt;TicketMetric&gt;" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[ticket]">
+                    <ActivityAction x:TypeArguments="zmt:TicketMetric">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="zmt:TicketMetric" Name="item" />
+                      </ActivityAction.Argument>
+                    </ActivityAction>
+                  </ForEach>
+                </ad:Commented.Body>
+              </ad:Commented>
+              <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_5">
+                <ad:Commented.Body>
+                  <aza:DeleteFile Delay="{x:Null}" FileToken="{x:Null}" Result="{x:Null}" DisplayName="Delete File" sap2010:WorkflowViewState.IdRef="DeleteFile_1" />
+                </ad:Commented.Body>
+              </ad:Commented>
+            </Sequence>
+            <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_8">
+              <ad:Commented.Body>
+                <Sequence DisplayName="Create User" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="zmu:IndividualUserResponse" sap2010:WorkflowViewState.IdRef="Variable`1_8" Name="createUser" />
+                  </Sequence.Variables>
+                  <aza:CreateUser Delay="{x:Null}" Details="{x:Null}" OrganizationID="{x:Null}" Phone="{x:Null}" TicketRestriction="{x:Null}" TimeZone="{x:Null}" DisplayName="Create User" Email="hitesh12@gmail.com" sap2010:WorkflowViewState.IdRef="CreateUser_1" Name="test user" Result="[createUser]" Role="Agent" />
+                  <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[createUser.User.Id.ToString]" />
+                </Sequence>
+              </ad:Commented.Body>
+            </ad:Commented>
+            <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_9">
+              <ad:Commented.Body>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="zmu:IndividualUserResponse" sap2010:WorkflowViewState.IdRef="Variable`1_9" Name="updateUser" />
+                  </Sequence.Variables>
+                  <aza:UpdateUser Delay="{x:Null}" Details="{x:Null}" Email="{x:Null}" Name="{x:Null}" OrganizationID="{x:Null}" Phone="{x:Null}" TicketRestriction="{x:Null}" TimeZone="{x:Null}" DisplayName="Update User" sap2010:WorkflowViewState.IdRef="UpdateUser_1" Result="[updateUser]" Role="Admin" UserID="18197985094673" />
+                </Sequence>
+              </ad:Commented.Body>
+            </ad:Commented>
+            <aza:UpdateTicket AssigneeName="{x:Null}" Body="{x:Null}" Delay="{x:Null}" GroupName="{x:Null}" OrganizationName="{x:Null}" DisplayName="Update Ticket" sap2010:WorkflowViewState.IdRef="UpdateTicket_1" Priority="Urgent" Response="[response]" Status="Solved" Subject="Updating Title" TicketID="3" Type="Incident" />
+            <WriteLine Text="[response.Ticket.Id.ToString]" sap2010:WorkflowViewState.IdRef="WriteLine_8" />
+          </Sequence>
+        </ActivityAction>
+      </aza:ZendeskScope.Body>
+    </aza:ZendeskScope>
+    <sads:DebugSymbol.Symbol>d1lDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXHplbmRlc2tcdXBkYXRlR3JvdXAueGFtbBU4A6kBDgIBATkFpwEYAgECOc4BOfEBAgEWPwukARYCAQNDDYwBGAIBDY0BDZcBHAIBDJgBDaEBHAIBC6IBDaIBxgICAQajAQ2jAW0CAQRLD2saAgESbA9zHgIBEXQPex4CARB8D4YBHgIBD4cBD4sBHgIBDqIBsAKiAbMCAgEKogGWAqIBpgICAQmiAfEBogH9AQIBB6MBHaMBPAIBBVARVCACARVVEVkgAgEUWhFqIAIBEw==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Variable`1_10">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">2fed7ce9-29ea-425b-b012-1f1d1a5ad4c8</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">4c39bf7f-4c5e-4028-bbbf-a55c06d5f727</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">12fc7a91-3b66-430c-babc-93bf47e05e6b</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">b95946fa-3592-4881-a631-6d380a29a3b2</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">fb49feed-f774-4e0d-889d-630f90abb467</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">4812d0be-efd7-4a8d-b4c5-76febd3c9653</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">e28de655-a8c1-4232-b4bb-130dda2e1a32</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">fbe89717-adb9-40ae-bdf0-db38ca86fff2</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="UpdateGroup_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">ed7532e6-a8d1-4e8a-a4e2-b1830bfc0a48</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_11" sap:VirtualizedContainerService.HintSize="226,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">1732a47e-7b25-4b60-a237-f3e97863d630</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CreateGroup_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">2abae014-62cd-47c1-b10e-a404fe541c3a</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_2" sap:VirtualizedContainerService.HintSize="226,110">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">6d7ae89f-40dd-41b4-addb-1dc63955b7f5</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ListSearch_2" sap:VirtualizedContainerService.HintSize="284.666666666667,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">0db8b312-7e9e-4acd-9cba-1d5ebe03625a</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="209.333333333333,62.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">f2a636ca-b12f-497f-9dbb-4fc63636bfee</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="231.333333333333,186.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="284.666666666667,339.333333333333">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">53ed06af-745f-45aa-a33b-4716a19fb012</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="306.666666666667,525.333333333333">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:String x:Key="CustomActivityId">0193f58a-5bf7-46a2-ac89-46898f556bec</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_10" sap:VirtualizedContainerService.HintSize="226,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">2e1b8aef-4cfc-417c-9441-226546ad8ed6</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="226,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:String x:Key="CustomActivityId">a3a68e99-0048-435c-af42-9193a4ac5876</x:String>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="UploadFile_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">49aa5906-b867-4a06-89b4-9504963ba998</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CreateTicketComment_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">3e338875-ea04-411f-a346-1987786be0e4</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="222,208">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">864699c5-bd16-42a0-a1fa-78e12f07198b</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_4" sap:VirtualizedContainerService.HintSize="226,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">92a366a7-e9e7-4505-8225-e7c7c559c5ae</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ShowTicketMetrics_1" sap:VirtualizedContainerService.HintSize="209.333333333333,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">d6802a0e-acee-4e3a-81ee-0aeeef79b743</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_6" sap:VirtualizedContainerService.HintSize="209.333333333333,62.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">246ed8f8-acdc-4f8a-b97a-d2a2eddb0364</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="231.333333333333,248.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">e931ef6a-7557-4870-bf13-7603110f9884</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_7" sap:VirtualizedContainerService.HintSize="226,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">d2dd75e5-6453-48e1-a952-2d9d38fa27d3</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="200,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">956e2c6c-f800-44b7-8e4d-090d80d1bb38</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_6" sap:VirtualizedContainerService.HintSize="226,140.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">9eb7c7b8-00ef-49e3-9a78-917557ed600b</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DeleteFile_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">dad77dc0-1089-4e92-b432-ee1deb7d0927</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_5" sap:VirtualizedContainerService.HintSize="226,110">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">3ca654e9-70c3-4be1-a969-7fe277687d1e</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="248,692.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:String x:Key="CustomActivityId">b0db497b-6870-40c1-a282-7d1bf040e92e</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">58110f90-55e3-4229-8cdc-a3c2b1dcb039</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CreateUser_1" sap:VirtualizedContainerService.HintSize="209.333333333333,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">0ecf7fd9-6fc0-412d-adb9-f012683ebd95</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_7" sap:VirtualizedContainerService.HintSize="209.333333333333,62.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">a3b89b13-fcd4-4d5a-a765-f2ffd3a43d7d</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="231.333333333333,248.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">9246ae17-48c6-40a1-a0b6-4a74e33650d8</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_8" sap:VirtualizedContainerService.HintSize="248,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">9a41330e-1d82-43a5-bac7-1c79093346b3</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">52ff604c-8ce2-4530-b635-ab321ee852c9</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="UpdateUser_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">f0be4476-90ff-4836-b9c4-7c615c3909a0</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_10" sap:VirtualizedContainerService.HintSize="222,146">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">65a79e87-799c-4010-8b06-4b783acc0708</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_9" sap:VirtualizedContainerService.HintSize="248,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">0071e5af-79e2-43f7-bc0b-e429dc4d4f28</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="UpdateTicket_1" sap:VirtualizedContainerService.HintSize="248,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">bf7e5c29-e3af-499d-8b17-5765b689838a</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_8" sap:VirtualizedContainerService.HintSize="248,62.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">723d0b76-2522-447c-9223-f77d42d3551f</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="270,1166.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ZendeskScope_1" sap:VirtualizedContainerService.HintSize="296,1300.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">50bba4b5-1a45-42fc-baa1-ca7bfae819cd</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="318,1424.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:String x:Key="CustomActivityId">03e28662-70d0-4e49-9047-37a354e7d9b7</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="updateGroup_1" sap:VirtualizedContainerService.HintSize="358,1544.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+            <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
