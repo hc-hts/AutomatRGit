@@ -32,8 +32,9 @@
   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Sample Test" />
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="updated file" />
-    <WriteLine Text="updated file" sap2010:WorkflowViewState.IdRef="WriteLine_3" />
-    <sads:DebugSymbol.Symbol>d2tDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXEF1dG9tYXRSR2l0X0Nsb25lXEF1dG9tYXRSR2l0XFN0YXJ0dXAueGFtbAcgAyUOAgEBIQUhUwIBBiIFIlQCAQQjBSNUAgECIUMhUAIBByJDIlECAQUjFSMjAgED</sads:DebugSymbol.Symbol>
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="updated file" />
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="updated file again" />
+    <sads:DebugSymbol.Symbol>d2tDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXEF1dG9tYXRSR2l0X0Nsb25lXEF1dG9tYXRSR2l0XFN0YXJ0dXAueGFtbAkgAyYOAgEBIQUhUwIBCCIFIlQCAQYjBSNUAgEEJAUkWgIBAiFDIVACAQkiQyJRAgEHI0MjUQIBBSRDJFcCAQM=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -58,7 +59,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="231.333333333333,392">
+      <sap2010:ViewStateData Id="WriteLine_4" sap:VirtualizedContainerService.HintSize="209.333333333333,62.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">d11b365d-e024-43c9-b6b2-730d8aa837d3</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="231.333333333333,494.666666666667">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -66,7 +74,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Startup_1" sap:VirtualizedContainerService.HintSize="271.333333333333,472" />
+      <sap2010:ViewStateData Id="Startup_1" sap:VirtualizedContainerService.HintSize="271.333333333333,574.666666666667" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
