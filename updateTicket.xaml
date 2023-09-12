@@ -1,0 +1,96 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="updateTicket" sap2010:WorkflowViewState.IdRef="updateTicket_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:az="clr-namespace:AutomatR.Zendesk;assembly=AutomatR.Zendesk"
+ xmlns:aza="clr-namespace:AutomatR.Zendesk.Activities;assembly=AutomatR.Zendesk"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:zmt="clr-namespace:ZendeskApi_v2.Models.Tickets;assembly=ZendeskApi_v2">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>AutomatR.Runtime</x:String>
+      <x:String>ZendeskApi_v2.Models.Tickets</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>AutomatR.FlowConfig</AssemblyReference>
+      <AssemblyReference>AutomatR.Runtime</AssemblyReference>
+      <AssemblyReference>ZendeskApi_v2</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <aza:ZendeskScope Delay="{x:Null}" AccessToken="fd59dd39af163393f0fcdfde2999bc819be8fb9b57208d27f51e6b972c223c4e" DisplayName="Zendesk Scope" sap2010:WorkflowViewState.IdRef="ZendeskScope_1" Subdomain="https://d3v-automatr.zendesk.com/">
+      <aza:ZendeskScope.Body>
+        <ActivityAction x:TypeArguments="az:ZendeskScopeApp">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="az:ZendeskScopeApp" Name="ScopeActivity" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Scope" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="zmt:IndividualTicketResponse" sap2010:WorkflowViewState.IdRef="Variable`1_1" Name="response" />
+            </Sequence.Variables>
+            <aza:UpdateTicket AssigneeName="{x:Null}" Body="{x:Null}" Delay="{x:Null}" GroupName="{x:Null}" OrganizationName="{x:Null}" DisplayName="Update Ticket" sap2010:WorkflowViewState.IdRef="UpdateTicket_1" Priority="Urgent" Response="[response]" Status="Solved" Subject="Updating Title" TicketID="3" Type="Incident" />
+          </Sequence>
+        </ActivityAction>
+      </aza:ZendeskScope.Body>
+    </aza:ZendeskScope>
+    <sads:DebugSymbol.Symbol>d1pDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXHplbmRlc2tcdXBkYXRlVGlja2V0LnhhbWwIJQM2DgIBASYFNBgCAQImzgEm8QECAQksCzEWAgEDMA0wxgICAQQwsAIwswICAQgwlgIwpgICAQcw8QEw/QECAQU=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Variable`1_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">c5977f93-9319-46e3-bbf9-8f4347bd19ac</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="UpdateTicket_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">18dea88d-bff6-4cb9-86b6-4442ce8c3b76</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="222,146">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ZendeskScope_1" sap:VirtualizedContainerService.HintSize="284,280">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">24ac6af4-ee17-46d8-89bb-9c0238564f21</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="306,404">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:String x:Key="CustomActivityId">0d43c952-75d3-4adc-ae58-0be6f134b096</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="updateTicket_1" sap:VirtualizedContainerService.HintSize="346,724" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
