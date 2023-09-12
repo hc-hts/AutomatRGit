@@ -1,0 +1,206 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Startup" sap2010:WorkflowViewState.IdRef="Startup_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:ad="clr-namespace:AutomatR.DefaultActivities;assembly=AutomatR.DefaultActivities"
+ xmlns:ag="clr-namespace:AutomatR.GoogleForms;assembly=AutomatR.GoogleForms"
+ xmlns:aga="clr-namespace:AutomatR.GoogleForms.Activities;assembly=AutomatR.GoogleForms"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>AutomatR.Runtime</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Google.Apis.Forms.v1.Data</x:String>
+      <x:String>Google.Apis.Requests</x:String>
+      <x:String>AutomatR.GoogleForms.Model</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>AutomatR.FlowConfig</AssemblyReference>
+      <AssemblyReference>AutomatR.Runtime</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Prism</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>Google.Apis.Forms.v1</AssemblyReference>
+      <AssemblyReference>Google.Apis.Core</AssemblyReference>
+      <AssemblyReference>Google.Apis</AssemblyReference>
+      <AssemblyReference>AutomatR.GoogleForms</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <aga:GoogleFormsScope Delay="{x:Null}" DisplayName="Google Forms Scope" sap2010:WorkflowViewState.IdRef="GoogleFormsScope_3" RefreshToken="1//0gH1SSJofS98HCgYIARAAGBASNwF-L9IrJApj279OcffHbnxvvayTojsy9_UeJCZCLZMI9o2jMPPDKyzySSntygKHCQ-ubeOXUUg">
+      <aga:GoogleFormsScope.Body>
+        <ActivityAction x:TypeArguments="ag:GoogleFormsScopeApp">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ag:GoogleFormsScopeApp" Name="Argument" />
+          </ActivityAction.Argument>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_5">
+              <ad:Commented.Body>
+                <Sequence DisplayName="Scope" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="Variable`1_9" Name="resFormID" />
+                    <Variable x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="Variable`1_10" Name="resResponderURL" />
+                  </Sequence.Variables>
+                  <aga:CreateForm Delay="{x:Null}" DisplayName="Create Form" DocumentTitle="This is document Title" FormID="[resFormID]" sap2010:WorkflowViewState.IdRef="CreateForm_2" ResponderURL="[resResponderURL]" Title="This is TITLE" />
+                  <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[resFormID]" />
+                  <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[resResponderURL]" />
+                </Sequence>
+              </ad:Commented.Body>
+            </ad:Commented>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <ad:Commented DisplayName="Commented Activities" sap2010:WorkflowViewState.IdRef="Commented_6">
+                <ad:Commented.Body>
+                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <aga:ChoiceQuestion Delay="{x:Null}" Location="{x:Null}" Result="{x:Null}" ChoiceQuestionType="Radio" Description="How old are you" DisplayName="Choice Question" FormID="101GqRFAuO0_S0zkHlefgFYBCVpgsuNY4zP9miq37y9A" sap2010:WorkflowViewState.IdRef="ChoiceQuestion_1" ImageAlignment="Center" Options="Less than 20, Between 20 to 40, Above 40" Required="False" SourceURI="https://drive.google.com/u/0/uc?id=16R53vjOxZbf6XUKt_fh0kZKqRferq2an&amp;export=download" Title="Age Group" Width="400" />
+                  </Sequence>
+                </ad:Commented.Body>
+              </ad:Commented>
+              <aga:ChoiceQuestion Delay="{x:Null}" Result="{x:Null}" ChoiceQuestionType="Checkbox" Description="Tick your interests!!!" DisplayName="Choice Question" FormID="101GqRFAuO0_S0zkHlefgFYBCVpgsuNY4zP9miq37y9A" sap2010:WorkflowViewState.IdRef="ChoiceQuestion_2" ImageAlignment="Center" Location="0" Options="Dancing, Music, Hobby, Jogging, Gym, Reading" Required="False" SourceURI="https://www.dropbox.com/scl/fi/hgqruersxx9m9gczfkd2a/81244233018_81253643518.jpg?rlkey=o88jm1p6o2dfzabitufg1chv4&amp;dl=1" Title="Hobbies" Width="150" />
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </aga:GoogleFormsScope.Body>
+    </aga:GoogleFormsScope>
+    <sads:DebugSymbol.Symbol>d1lDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXGdvb2dsZUZvcm1zXFN0YXJ0dXAueGFtbA81A1kOAgEBNgVXHAIBAjwLVBYCAQM9DUkcAgEPSg1TGAIBBEsPUR4CAQ5SD1KhBAIBBVKxAlK0AgIBDVJwUogBAgEMUr0CUusCAgELUocDUoIEAgEKUq4BUtwBAgEJUvUCUvwCAgEIUokEUpIEAgEHUpkEUp4EAgEG</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Variable`1_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">b4692663-421f-49da-8b47-67df90ff99df</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Variable`1_10">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">472ad0a4-3cfa-4f43-bf8e-c88d6f2f214b</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CreateForm_2" sap:VirtualizedContainerService.HintSize="209.333333333333,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">b252daf4-8800-4640-be02-639637abb2b4</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_7" sap:VirtualizedContainerService.HintSize="209.333333333333,62.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">1c8ec925-934b-4054-a024-3e81be5ce4fc</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_8" sap:VirtualizedContainerService.HintSize="209.333333333333,62.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">6ef41e2b-d49e-4625-a06d-d44ec1eefa28</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="200,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:String x:Key="CustomActivityId">20258584-2a4c-45bd-8d7c-219c946c81d6</x:String>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_5" sap:VirtualizedContainerService.HintSize="270,52.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">88608099-04f3-4a50-bb98-ef7b2bc1cd02</x:String>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ChoiceQuestion_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">3258fa6e-0d92-4b7e-ab74-aeb2697070bf</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_11" sap:VirtualizedContainerService.HintSize="222,146">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Commented_6" sap:VirtualizedContainerService.HintSize="248,234">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">c27ab62e-2084-4775-8485-f4ae9a26dbda</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ChoiceQuestion_2" sap:VirtualizedContainerService.HintSize="248,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">ebb262d4-81ef-4ef1-93fe-4c57af4b81f9</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="270,420">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">6f75abcf-6f35-47c0-b50d-ca6ad00ec36f</x:String>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_10" sap:VirtualizedContainerService.HintSize="292,636.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="GoogleFormsScope_3" sap:VirtualizedContainerService.HintSize="318,770.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">378a90c0-7635-46d2-9c5d-e569309855eb</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="340,894.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:String x:Key="CustomActivityId">7029dfc7-bdd7-472c-8682-5b96d903dcb8</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Startup_1" sap:VirtualizedContainerService.HintSize="380,1694.66666666667" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
