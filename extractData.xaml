@@ -1,0 +1,88 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="extractData" sap2010:WorkflowViewState.IdRef="extractData_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:adw="clr-namespace:AutomatR.DefaultActivities.WorkBook;assembly=AutomatR.DefaultActivities"
+ xmlns:awa="clr-namespace:AutomatR.Windows.Activities;assembly=AutomatR.Windows"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>AutomatR.Runtime</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>AutomatR.FlowConfig</AssemblyReference>
+      <AssemblyReference>AutomatR.Runtime</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="Variable`1_1" Name="winDT" />
+    </Sequence.Variables>
+    <awa:AttachWindow Result="{x:Null}" Window="{x:Null}" DisplayName="Attach Window" sap2010:WorkflowViewState.IdRef="AttachWindow_1" Selector="Display Title: eTimeTrackLite" />
+    <awa:ExtractData Delay="{x:Null}" Element="{x:Null}" DisplayName="Extract Data" sap2010:WorkflowViewState.IdRef="ExtractData_1" Result="[winDT]" Selector="&quot;[&quot;True&quot;,&quot;False&quot;,&quot;AutomationId:Dg_Employee||id:203||ClassName:WindowsForms10.Window.8.app.0.141b42a_r6_ad1||Name:DataGridView||ControlType:Table||windowType:Other||Title:eSSL eTimeTrackLite 11.9 - [Employees Details]||WindowPath:C:\\Program Files (x86)\\essl\\eTimeTrackLite\\eTimeTrackLite.exe||ProcessName:eTimeTrackLite&quot;,&quot;&quot;,&quot;&quot;]&quot;" />
+    <adw:WriteRange Delay="{x:Null}" Password="{x:Null}" Datatable="[winDT]" DisplayName="Write Range" ExcelFilePath="C:\Users\HP\Downloads\Result.xlsx" Header="False" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet2" StartingCell="A1" />
+    <sads:DebugSymbol.Symbol>d2hDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXFdlYkF1dG9tYXRpb25fQXR0ZW5kZWRcZXh0cmFjdERhdGEueGFtbAomAy4OAgEBKgUqswECAQwrBSurBAIBCSwFLP8BAgECK4wBK5UBAgEKLKEBLKgBAgEILPgBLPwBAgEHLHYsmQECAQYsRCxNAgEELOIBLOoBAgED</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Variable`1_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">21f2ba5f-ec9b-4f0c-a447-5af9faeb111c</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="AttachWindow_1" sap:VirtualizedContainerService.HintSize="214,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">3dd1181f-02bf-46ad-941e-4b4e76bde45c</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExtractData_1" sap:VirtualizedContainerService.HintSize="214,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">6b9f5bc7-f556-430e-8882-5f0f2c2c2963</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteRange_1" sap:VirtualizedContainerService.HintSize="214,196">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">6d6af248-5ed6-4ed8-84cf-54217f947d91</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="236,444">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:String x:Key="CustomActivityId">5c6c846a-dc42-4e8c-b1a5-55f49648e37d</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="extractData_1" sap:VirtualizedContainerService.HintSize="276,524" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
