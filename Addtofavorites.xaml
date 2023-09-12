@@ -1,0 +1,57 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Addtofavorites" sap2010:WorkflowViewState.IdRef="Addtofavorites_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:aoc="clr-namespace:AutomatR.OrchestratorActivities.Configuration;assembly=AutomatR.OrchestratorActivities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>AutomatR.Runtime</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>AutomatR.FlowConfig</AssemblyReference>
+      <AssemblyReference>AutomatR.Runtime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <aoc:GetConfigSecureText ConfigurationKey="{x:Null}" Delay="{x:Null}" SecurePassword="{x:Null}" DisplayName="Get Config Secure Text" sap2010:WorkflowViewState.IdRef="GetConfigSecureText_1" />
+    <sads:DebugSymbol.Symbol>d1RDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXEFkZHRvZmF2b3JpdGVzLnhhbWwCIQMkDgIBASIFIsQBAgEC</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="GetConfigSecureText_1" sap:VirtualizedContainerService.HintSize="214,88.6666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">1cd44f30-f0f0-4899-b094-3c1826066b29</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="236,212.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:String x:Key="CustomActivityId">fe988a73-c5d8-4023-a87a-b7ac6e2eb7b8</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Addtofavorites_1" sap:VirtualizedContainerService.HintSize="276,332.666666666667" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

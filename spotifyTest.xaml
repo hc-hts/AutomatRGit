@@ -1,0 +1,89 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="spotifyTest" sap2010:WorkflowViewState.IdRef="spotifyTest_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:awa="clr-namespace:AutomatR.Windows.Activities;assembly=AutomatR.Windows"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>AutomatR.Runtime</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>AutomatR.FlowConfig</AssemblyReference>
+      <AssemblyReference>AutomatR.Runtime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <awa:AttachWindow Result="{x:Null}" Window="{x:Null}" DisplayName="Attach Window" sap2010:WorkflowViewState.IdRef="AttachWindow_1" Selector="Display Title: eTimeTrackLite || Process Name : eTimeTrackLite" />
+    <awa:ExtractData Delay="{x:Null}" Element="{x:Null}" Result="{x:Null}" Selector="{x:Null}" DisplayName="Extract Data" sap2010:WorkflowViewState.IdRef="ExtractData_2" />
+    <awa:Click Delay="{x:Null}" Element="{x:Null}" DisplayName="Click" sap2010:WorkflowViewState.IdRef="Click_1" Selector="AutomationId:NewConvoButton||id:26||windowType:Other||Title:WhatsApp||WindowPath:C:\Windows\System32\ApplicationFrameHost.exe||ProcessName:ApplicationFrameHost" />
+    <awa:Focus Delay="{x:Null}" Element="{x:Null}" DisplayName="Focus" sap2010:WorkflowViewState.IdRef="Focus_1" Selector="AutomationId:QueryTextBox||id:12||windowType:Other||Title:WhatsApp||WindowPath:C:\Windows\System32\ApplicationFrameHost.exe||ProcessName:ApplicationFrameHost" />
+    <awa:TypeInto Delay="{x:Null}" Element="{x:Null}" ClearText="True" DisplayName="Type into" sap2010:WorkflowViewState.IdRef="TypeInto_1" Selector="AutomationId:QueryTextBox||id:12||windowType:Other||Title:WhatsApp||WindowPath:C:\Windows\System32\ApplicationFrameHost.exe||ProcessName:ApplicationFrameHost" Text="test" />
+    <sads:DebugSymbol.Symbol>d1FDOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXHNwb3RpZnlUZXN0LnhhbWwIIQMoDgIBASIFItQBAgEIIwUjrQECAQckBSSfAgIBBiUFJZ0CAgEFJgUmxAICAQImuwImwQICAQQmQSZHAgED</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="AttachWindow_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">dc1bcbbd-fbd5-4d48-9cf8-522b0b7349ed</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExtractData_2" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">4a3e7c26-8f34-4853-abee-402f18d24835</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">b245a485-9522-41e5-8aac-61eac408be05</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Focus_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">e77d689d-e258-46db-acd9-2ebbe1f4cfce</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TypeInto_1" sap:VirtualizedContainerService.HintSize="200,22">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="CustomActivityId">bf4a4758-f5e3-4de0-b27d-1f19de9a6f87</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,394">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:String x:Key="CustomActivityId">253a9176-b469-4405-898f-ed71c783de77</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="spotifyTest_1" sap:VirtualizedContainerService.HintSize="262,514" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
