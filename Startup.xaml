@@ -30,14 +30,14 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
-    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Sample Test" />
-    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="updated file" />
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Sample Test11" />
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="updated 23233" />
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="updated file" />
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="updated file again" />
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="updated file wow... dafsn" />
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="updated test wow... dafsn" />
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="adde en changes" />
-    <sads:DebugSymbol.Symbol>d21DOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXGFjY2Vzc2liaWxpdHlSZXRlc3RcQXV0b21hdFJHaXRcU3RhcnR1cC54YW1sDyADKQ4CAQEhBSFTAgEOIgUiVAIBDCMFI1QCAQokBSRaAgEIJQUlYQIBBiYFJmECAQQnBSdXAgECIUMhUAIBDyJDIlECAQ0jQyNRAgELJEMkVwIBCSVDJV4CAQcmQyZeAgEFJ0MnVAIBAw==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d21DOlxVc2Vyc1xIUFxPbmVEcml2ZSAtIEh5cGVyIFRocmVhZCBTb2x1dGlvbnNcRG9jdW1lbnRzXEF1dG9tYXRSXGFjY2Vzc2liaWxpdHlSZXRlc3RcQXV0b21hdFJHaXRcU3RhcnR1cC54YW1sDyADKQ4CAQEhBSFVAgEOIgUiVQIBDCMFI1QCAQokBSRaAgEIJQUlYQIBBiYFJmECAQQnBSdXAgECIUMhUgIBDyJDIlICAQ0jQyNRAgELJEMkVwIBCSVDJV4CAQcmQyZeAgEFJ0MnVAIBAw==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
